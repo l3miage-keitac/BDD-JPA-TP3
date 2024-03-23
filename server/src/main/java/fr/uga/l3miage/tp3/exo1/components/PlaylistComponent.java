@@ -29,4 +29,11 @@ public class PlaylistComponent {
         playlistEntity.setTotalDuration(totalDuration);
         return playlistRepository.save(playlistEntity);
     }
+    public void deletePlaylist(String name){
+        playlistRepository.deleteById(name);
+    }
+
+    public Set<PlaylistEntity> getPlaylistEntities(SongEntity song){
+        return playlistRepository.findAllBySongEntitiesContaining(song);
+    }
 }
